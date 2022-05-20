@@ -1,0 +1,183 @@
+<div *ngIf=showupdate>
+  <div class="container-fluid justify-content-center">
+
+
+    <div class="card  border-0">
+      <div class="card-header" id="card-header-color">
+        <h5 class="card-title">Update Details</h5>
+        <button id="x" (click)="close()"> X</button>
+      </div>
+      <div class="card-body" text-align="left">
+
+
+        <div class="error"> {{showError}}</div>
+        <form name="form" (ngSubmit)="f.form.valid && onUpdate()" #f="ngForm" novalidate>
+
+          <div class="form-row">
+            <div class="form-group col">
+              <label>First Name</label>
+              <input type="text" name="username" class="form-control" [(ngModel)]="pensionUser.username"
+                #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" disabled>
+            </div>
+            <div class="form-group col">
+              <label>aadhar</label>
+              <input type="number" name="aadhar" class="form-control" [(ngModel)]="pensionUser.aadhar" #aadhar="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && aadhar.invalid }" disabled>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <label>salaryearned</label>
+              <input type="number" name="salaryearned" class="form-control" [(ngModel)]="pensionUser.salaryearned"
+                #salaryearned="ngModel" [ngClass]="{ 'is-invalid': f.submitted && salaryearned.invalid }" required
+                min="50000" max="500000">
+              <div *ngIf="f.submitted && salaryearned.invalid" class="invalid-feedback">
+                <div *ngIf="salaryearned.errors['required']">salary is required</div>
+                <div *ngIf="salaryearned.errors['min']">salary must be above 50K</div>
+              </div>
+            </div>
+            <div class="form-group col">
+              <label>Allowances</label>
+              <input type="number" name="allowances" class="form-control" [(ngModel)]="pensionUser.allowances"
+                #allowances="ngModel" [ngClass]="{ 'is-invalid': f.submitted && allowances.invalid }" required
+                min="10000" max="100000">
+              <div *ngIf="f.submitted && allowances.invalid" class="invalid-feedback">
+                <div *ngIf="allowances.errors['required']">Allowances is required</div>
+                <div *ngIf="allowances.errors['min']">Allowances must be above 10K</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col">
+              <label>bankName</label>
+              <select name="bankName" class="form-control" [(ngModel)]="pensionUser.bankName" #bankName="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && bankName.invalid }" disabled>
+                <option value=""></option>
+                <option value="axis">Axis</option>
+                <option value="sbi">SBI</option>
+                <option value="hdfc">HDFC</option>
+                <option value="cb">CB</option>
+              </select>
+            </div>
+
+            <div class="form-group col">
+              <label>Account Number</label>
+              <input type="number" name="accountnumber" class="form-control" [(ngModel)]="pensionUser.accountnumber"
+                #accountnumber="ngModel" [ngClass]="{ 'is-invalid': f.submitted && accountnumber.invalid }" disabled>
+            </div>
+          </div>
+          <div><br></div>
+          <div><br></div>
+          <div class="text-center">
+            <div class="row">
+              <div class="col"></div>
+              <div class="col"><button class="btn btn-primary mr-1">update</button></div>
+              <div class="col"><button class="btn btn-secondary" type="reset">Cancel</button></div>
+              <div class="col"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div *ngIf=!showupdate class="container-fluid rounded">
+
+  <h4 class="mb-4"></h4>
+  <div class="card border-0 mb-3">
+    <div class="card-header" id="card-header-color">
+      <h1> Hi, {{pensionUser?.username}}</h1>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Details </h5>
+      <div><br></div>
+      <div class="card-text ">
+        <div class="row">
+          <div class="col">Aadhar</div>
+          <div class="col">:</div>
+          <div class="col">{{pensionUser?.aadhar}}</div>
+        </div>
+      </div>
+      <div><br></div>
+      <div class="card-text ">
+        <div class="row">
+          <div class="col">PAN</div>
+          <div class="col">:</div>
+          <div class="col">{{pensionUser?.pan}}</div>
+        </div>
+      </div>
+      <div><br></div>
+      <div class="card-text">
+        <div class="row">
+          <div class="col">Salary</div>
+          <div class="col">:</div>
+          <div class="col">{{pensionUser?.salaryearned}}</div>
+        </div>
+      </div>
+      <div><br></div>
+      <div class="card-text">
+        <div class="row">
+          <div class="col">Allowance</div>
+          <div class="col">:</div>
+          <div class="col">{{pensionUser?.allowances}}</div>
+        </div>
+      </div>
+      <div><br></div>
+      <div class="card-text">
+        <div class="row">
+          <div class="col">Bank</div>
+          <div class="col">:</div>
+          <div class="col">{{pensionUser?.bankName}}</div>
+        </div>
+      </div>
+      <div><br></div>
+      <div class="card-text">
+        <div class="row">
+          <div class="col">AC Number</div>
+          <div class="col">:</div>
+          <div class="col">{{pensionUser?.accountnumber}}</div>
+        </div>
+        <div><br></div>
+        <div><br></div>
+      </div>
+      <div class="card-text">
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-3"><button class="btn btn-primary" (click)="showupdate=true"> update</button></div>
+          <div class="col-3"><button class="btn btn-primary" on-click="onValidate()">Pension</button></div>
+          <div class="col-3"></div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<div *ngIf=validate>
+
+  <div class="modal border-1px" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content border-1px">
+        <div class="modal-body">
+          <p>Details you have given</p>
+          <h6>UserName: {{pensionUser.aadhar}}</h6>
+          <h6>Salary: {{pensionUser.salaryearned}}</h6>
+          <h6>Allowance: {{pensionUser.allowances}}</h6>
+          <div><br></div>
+          <div>
+            <button type="button" class="btn btn-primary" (click)="closePopup()"
+              style="right:0; position: relative;">Ok</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

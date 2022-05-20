@@ -1,0 +1,32 @@
+<div *ngIf=!update>
+  <h4 class="mb-4"></h4>
+
+  <div class="card border-0">
+    <div class="card-header" style="text-align: left;" id="card-header-color">
+      <h5>your pension charges</h5>
+    </div>
+    <div class="card-body">
+      <div class="card-text ">
+        <div class="row">
+          <div class="col-sm">Pension Amount</div>
+          <div class="col-sm">: {{penioncharges.pensioneramt}}</div>
+        </div>
+        <div> <br> </div>
+      </div>
+      <div class="card-text ">
+        <div class="row">
+          <div class="col-sm">Bank Charges</div>
+          <div class="col-sm">: {{penioncharges.pensionerbc}}</div>
+        </div>
+        <div> <br> </div>
+        <div> <br> </div>
+        <div class="card-text ">
+          <div class="row">
+            <div class="col"><button class="btn btn-primary" on-click="onback()">Back</button></div>
+            <div class="col"><button class="btn btn-primary" on-click="onlogout()">Logout</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

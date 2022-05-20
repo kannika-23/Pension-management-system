@@ -1,0 +1,80 @@
+.textAlign {
+  align-items: left;
+}
+
+.value {
+  text-align: justify;
+}
+
+.model {
+  border: 1px black;
+  background-color: bisque;
+}
+
+
+.homecomp {
+  align-self: auto;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.content {
+  border: 1px solid black;
+  position: fixed;
+  padding-top: 2%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 5%;
+  padding-inline-end: 10%;
+}
+
+.para {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.log {
+  padding: 10px;
+}
+.card {
+  width: 70%;
+  height: 600px;
+  background-color: none;
+}
+
+.card-header {
+  color: #5000ca;
+}
+
+#card-header-color {
+  background-color: white;
+
+}
+
+#x {
+  position: absolute;
+  color: white;
+  background-color: #5000ca;
+  top: 10px;
+  right: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.btnok {
+  border-radius: 3px;
+  border-color: #5000ca;
+  color: white;
+  background-color: #5000ca;
+}
+
+.error {
+  color: red;
+  text-align: center;
+  font-size: medium;
+  font-style: italic;
+}
