@@ -1,0 +1,25 @@
+
+.content {
+    max-width: 70%;
+    margin: 10px;
+    padding: 10px;
+    padding-left: 20%;
+}
+.side{
+    float:right; 
+    width: 20%;
+    height: 90%;
+    background-color: #5000ca;
+    position: fixed;
+}
+.card-header{
+    background-color: #5000ca; 
+    color: white;
+}
+#x {
+    position: absolute;
+    color: white;
+    background-color: #5000ca;
+    top: 10px;
+    right: 10px;
+}

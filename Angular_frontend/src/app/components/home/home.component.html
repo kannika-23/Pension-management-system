@@ -1,0 +1,239 @@
+<p>home works!</p>
+<div class="homecomp" *ngIf=showStart>
+    <div class="row">
+        <h1>Welcome to Happy Future</h1>
+    </div>
+    <div class="row"> <br></div>
+    <div class="row"> <br></div>
+    <div class="row"> <br></div>
+    <div class="row justify-content-center para">
+        <p>
+            As people develop through their lifetime they have an expectation that a time will come when they will be
+            able to retire.
+            For some people the State pension is sufficient to provide a basic level of income. Others may have an
+            opportunity to accumulate wealth without using pension schemes - perhaps through their business ventures or
+            other assets. But most people will want to supplement what they have with some form of pension scheme.
+            Many employers also take the view that, while their employees are working, they should be building up an
+            entitlement to a pension when they retire. We provide a simple way.
+        </p>
+    </div>
+    <div class="row"> <br></div>
+    <div class="row"> <br></div>
+    <div class="row"> <br></div>
+    <div class="row">
+        <div class="col"> </div>
+        <div class="col"><button class="btn btnok" (click)="welcomelogin()">Login</button></div>
+        <div class="col"><button class="btn btnok" (click)="welcomesingup()">singup</button></div>
+        <div class="col"> </div>
+    </div>
+</div>
+<div *ngIf=showlogin>
+    <div class="card border-0 mb-3">
+        <h5 class="card-header border-0 mb-3" id="card-header-color">Login Form</h5>
+        <button id="x" (click)="close()">X</button>
+        <div><br></div>
+        <div class="card-body">
+
+            <div *ngIf="showerrorcontent" class="error">
+                <p>{{showError}}</p>
+            </div>
+            <div class="row">
+                <p>your Aadhar is your UserId</p>
+            </div>
+            <form name="form" (ngSubmit)="f.form.valid && onLogin()" #f="ngForm" novalidate>
+                <div class="log">
+
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label>UserId </label>
+                            <input type="number" name="userId" class="form-control" [(ngModel)]="loginUser.userId"
+                                #userId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && userId.invalid }" required
+                                min="100000000000" max="999999999999">
+                            <div *ngIf="f.submitted && userId.invalid" class="invalid-feedback">
+                                <div *ngIf="userId.errors['required']">UserId is required</div>
+                                <div *ngIf="userId.errors['min']">userId must be 12 numbers</div>
+                            </div>
+                        </div>
+                        <div class="row"> <br></div>
+                        <div class="form-group col">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control"
+                                [(ngModel)]="loginUser.password!" #password="ngModel"
+                                [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required minlength="8">
+                            <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                                <div *ngIf="password.errors['required']">Confirm Password is required</div>
+                                <div *ngIf="password.errors['minlength']">Passwords must be min 8 characters</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row"> <br></div>
+                    <div class="row"> <br></div>
+                    <div class="text-center">
+                        <div class="row">
+
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-3"><button class="btn btn-primary mr-1">Login</button></div>
+                            <div class="col-sm-3"><button class="btn btn-secondary" type="reset">Cancel</button></div>
+                            <div class="col-sm"></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<div *ngIf=showSignup>
+    <div class="card  border-0 mb-3">
+        <h5 class="card-header " id="card-header-color">Register for Pension Management Portal</h5>
+        <button id="x" (click)="close()"> X</button>
+        <div class="card-body">
+
+            <div class="error">
+                <p>{{showError}}</p>
+            </div>
+            <form name="form" (ngSubmit)="f.form.valid && onRegister()" #f="ngForm" novalidate>
+
+                <div class="row">
+                    <div class=" col">
+                        <label>User Name</label>
+                        <input type="text" name="username" class="form-control" [(ngModel)]="model.username"
+                            #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.invalid }" required
+                            minlength="4">
+                        <div *ngIf="f.submitted && username.invalid" class="invalid-feedback">
+                            <div *ngIf="username.errors['required']">Name is required</div>
+                            <div *ngIf="username.errors['minlength']">Name must be at least 4 characters</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label>Aadhar Number</label>
+                        <input type="number" name="aadhar" class="form-control" [(ngModel)]="model.aadhar"
+                            #aadhar="ngModel" [ngClass]="{ 'is-invalid': f.submitted && aadhar.invalid }" required
+                            min="100000000000" max="999999999999">
+                        <div *ngIf="f.submitted && aadhar.invalid" class="invalid-feedback">
+                            <div *ngIf="aadhar.errors['required']">Aadhar Number is required</div>
+                            <div *ngIf="aadhar.errors['max']">Aadhar Number must be length of 12</div>
+                            <div *ngIf="aadhar.errors['min']">Aadhar Number must be length of 12</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Date of Birth</label>
+                        <input type="date" name="dob" class="form-control" [(ngModel)]="model.dob" #dob="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && dob.invalid }" required min="1952-01-01"
+                            max="1975-12-31" pattern="^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$">
+                        <div *ngIf="f.submitted && dob.invalid" class="invalid-feedback">
+                            <div *ngIf="dob.errors['required']">Date of Birth is required</div>
+                            <div *ngIf="dob.errors['pattern']">Date of Birth must be a valid date in the format
+                                YYYY-MM-DD</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label>Type of plan</label>
+                        <div class="form-control">
+                            <label class="radio-inline">
+                                <input type="radio" name="typselffam" value="true" [(ngModel)]="model.typselffam"
+                                    #typselffam="ngModel">
+                                Self
+                            </label>
+                            <span></span>
+                            <label class="radio-inline">
+                                <input type="radio" name="typselffam" value="false" [(ngModel)]="model.typselffam"
+                                    #typselffam="ngModel">
+                                Family
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label>pan</label>
+                        <input type="text" name="pan" class="form-control" [(ngModel)]="model.pan" #pan="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && pan.invalid }" required minlength="10"
+                            pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}">
+                        <div *ngIf="f.submitted && pan.invalid" class="invalid-feedback">
+                            <div *ngIf="pan.errors['required']">pan is required</div>
+                            <div *ngIf="pan.errors['minlength']">pan must be a valid pan address</div>
+                            <div *ngIf="pan.errors['pattern']">pan must be a valid pan address</div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>salaryearned</label>
+                        <input type="number" name="salaryearned" class="form-control" [(ngModel)]="model.salaryearned"
+                            #salaryearned="ngModel" [ngClass]="{ 'is-invalid': f.submitted && salaryearned.invalid }"
+                            required min="50000" max="500000">
+                        <div *ngIf="f.submitted && salaryearned.invalid" class="invalid-feedback">
+                            <div *ngIf="salaryearned.errors['required']">salary is required</div>
+                            <div *ngIf="salaryearned.errors['min']">salary must be above 50K</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label>Allowances</label>
+                        <input type="number" name="allowances" class="form-control" [(ngModel)]="model.allowances"
+                            #allowances="ngModel" [ngClass]="{ 'is-invalid': f.submitted && allowances.invalid }"
+                            required min="10000" max="100000">
+                        <div *ngIf="f.submitted && allowances.invalid" class="invalid-feedback">
+                            <div *ngIf="allowances.errors['required']">Allowances is required</div>
+                            <div *ngIf="allowances.errors['min']">Allowances must be above 10K</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label>bankName</label>
+                        <select name="bankName" class="form-control" [(ngModel)]="model.bankName" #bankName="ngModel"
+                            [ngClass]="{ 'is-invalid': f.submitted && bankName.invalid }" required>
+                            <option value=""></option>
+                            <option value="axis">Axis</option>
+                            <option value="sbi">SBI</option>
+                            <option value="hdfc">HDFC</option>
+                            <option value="cb">CB</option>
+                        </select>
+                        <div *ngIf="f.submitted && bankName.invalid" class="invalid-feedback">
+                            <div *ngIf="bankName.errors['required']">bankName is required</div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <label>Account Number</label>
+                        <input type="number" name="accountnumber" class="form-control" [(ngModel)]="model.accountnumber"
+                            #accountnumber="ngModel" [ngClass]="{ 'is-invalid': f.submitted && accountnumber.invalid }"
+                            required min="1000000000" max="9999999999">
+                        <div *ngIf="f.submitted && accountnumber.invalid" class="invalid-feedback">
+                            <div *ngIf="accountnumber.errors['required']">accountnumber is required</div>
+                            <div *ngIf="accountnumber.errors['min']">accountnumber must be 10 digits</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label>Password</label>
+                        <input type="password" name="password" class="form-control" [(ngModel)]="loginCred.password"
+                            #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required
+                            minlength="8">
+                        <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+                            <div *ngIf="password.errors['required']">Password is required</div>
+                            <div *ngIf="password.errors['minlength']">Passwords must be 8 characters</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row"> <br></div>
+                <div class="text-center">
+                    <div class="row">
+
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-3"><button class="btn btn-primary mr-1">Register</button></div>
+                        <div class="col-sm-3"><button class="btn btn-secondary" type="reset">Cancel</button></div>
+                        <div class="col-sm"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

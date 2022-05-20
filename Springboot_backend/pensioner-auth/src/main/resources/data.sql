@@ -1,0 +1,16 @@
+insert into user(id,user_id,password) values(1001, 123434875678, 'password');
+insert into user(id,user_id,password) values(1002, 123434876575, 'password');
+insert into user(id,user_id,password) values(1003, 123434874563, 'password');
+insert into user(id,user_id,password) values(1004, 123434875232, 'password');
+insert into user(id,user_id,password) values(1005, 125634875678, 'password');
+insert into user(id,user_id,password) values(1006, 123433545678, 'password');
+insert into user(id,user_id,password) values(1007, 450434875678, 'password');
+insert into user(id,user_id,password) values(1008, 453434875678, 'password');
+insert into user(id,user_id,password) values(1009, 123434874578, 'password');
+insert into user(id,user_id,password) values(1010, 123433475678, 'password');
+insert into user(id,user_id,password) values(1011, 122034875678, 'password');
+insert into user(id,user_id,password) values(1012, 123434844678, 'password');
+insert into user(id,user_id,password) values(1013, 723434875678, 'password');
+insert into user(id,user_id,password) values(1014, 123434875438, 'password');
+insert into user(id,user_id,password) values(1015, 111433475678, 'password');
+insert into user(id,user_id,password) values(1016, 123496875678, 'password11');

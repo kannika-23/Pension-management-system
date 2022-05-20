@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" routerLink="">PMP portal</a>
+  <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse"
+    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" [ngClass]="{ 'show': navbarOpen }">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="" routerLinkActive="active">Home <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="index" routerLinkActive="active">Index</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="base" routerLinkActive="active">Pension</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-11">
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <div class="col">
+      <div class="side">
+      </div>
+    </div>
+
+  </div>
+  <footer class="fixed-bottom">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#5000ca" fill-opacity="1"
+        d="M0,32L48,64C96,96,192,160,288,202.7C384,245,480,267,576,250.7C672,235,768,181,864,133.3C960,85,1056,43,1152,58.7C1248,75,1344,149,1392,186.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+      </path>
+    </svg>
+  </footer>
