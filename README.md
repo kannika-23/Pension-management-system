@@ -1,6 +1,11 @@
-# 841834_pension_management_portal_webapp
+# 841834_Pension_Management_Portal_Webapp
+
+<hr>
+
+### Tech stack
 
 > | Angular | Sprinboot | Typescript | Java |
+
 
 Webapplication is developed in combination of Angular and Springboot with microservice architecture.
 
@@ -9,7 +14,7 @@ Sprinboot has the ability to create a standalone application and reduce amount o
 Microservice architecture used, that make the application scable and efficient. 
 
 
-> Table of contents:
+## > Table of contents:
 
 - Overview
 - About
@@ -17,7 +22,7 @@ Microservice architecture used, that make the application scable and efficient.
 - Try it now
 - Author
 
-> Overview
+## > Overview
 
 **About**
 
@@ -49,6 +54,7 @@ frontend -> install node js and run using comman `ng server`.
 
 backend -> install maven and run it by right clicking the application and select run as `java application`.
 
+<hr>
 **Author**
 
 kannika 

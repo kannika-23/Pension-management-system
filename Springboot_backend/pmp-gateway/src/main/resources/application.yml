@@ -9,7 +9,8 @@ spring:
           lowercaseServiceId: true
   jackson:
     default-property-inclusion: NON_NULL
-server-port: '8765'
+server:
+  port: '8765'
 eureka:
   client:
     service-url:

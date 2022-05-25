@@ -1,0 +1,48 @@
+version: '2'
+services:
+    eureka-server:
+        image:  kags23/pmp-server:01
+        ports:
+            -   8761:8761
+
+    api-gateway-server:
+        image:  kags23/pmp-gateway-server:01
+        ports:
+            -   8765:8765
+        depends_on:
+            -   eureka-server
+        environment:
+            eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka
+
+    auth-server:
+        image:  kags23/pmp-auth-server:01
+        ports:
+            -   8080:8080
+        depends_on:
+            -   eureka-server
+            -   api-gateway-server
+        environment:
+            eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka
+
+    process-pension-server:
+        image: kags23/pmp-process-pension-server:01
+        ports:
+            -   8100:8100
+        depends_on:
+            -   eureka-server
+            -   api-gateway-server
+            -   auth-server
+        environment:
+            eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka
+
+    pensioner-details-server:
+        image: kags23/pmp-pensioner-detail-server:01
+        ports:
+            -   8000:8000
+        depends_on:
+            -   eureka-server
+            -   api-gateway-server
+            -   auth-server
+            -   process-pension-server
+        environment:
+            eureka.client.serviceUrl.defaultZone: http://eureka-server:8761/eureka

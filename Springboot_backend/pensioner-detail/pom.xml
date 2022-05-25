@@ -99,6 +99,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>pmp-pensioner-detail-executable</finalName>
 	</build>
 
 </project>
